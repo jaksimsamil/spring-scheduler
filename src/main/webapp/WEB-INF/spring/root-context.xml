@@ -5,10 +5,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util 
         http://www.springframework.org/schema/util/spring-util-3.2.xsd">
-	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	
+
 	<util:properties id="jdbc" location="classpath:config/jdbc.properties"/>
 	<import resource="./jdbc-config.xml"/>
-		
+	<import resource="./scheduler-context.xml"/>
 </beans>
