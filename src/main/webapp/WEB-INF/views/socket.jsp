@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Web Socket Here</title>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -17,6 +18,7 @@
 
 		ws.onmessage = function(e){ // 서버로부터 메세지를 받았을 때 실행
 			console.log(e.data); //전달 받은 메세지 = e
+            $("#board").append($('<p class="text-primary"></p>').text(e.data));
 		}
 
 		ws.onclose = function(e){ // 연결 종료 시 실행
@@ -26,14 +28,10 @@
 		ws.onerror = function(e){
 			console.log("error")
 		};
-
-
 		$("#btn").on("click",function(e){
 			e.preventDefault();
 			ws.send($("#testInput").val());
 		});
-
-
 
 	});
 </script>
@@ -43,5 +41,7 @@
 	<input type="text" id="testInput">
 	<button type="button" id="btn">전송</button>
 
+    <div id="board" class="p-3 mb-2 bg-secondary text-white">
+    </div>
 </body>
 </html>

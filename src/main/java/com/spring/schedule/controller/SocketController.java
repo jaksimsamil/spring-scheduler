@@ -11,9 +11,9 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SocketController extends TextWebSocketHandler {
+public  class SocketController extends TextWebSocketHandler {
 	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
-	private List<WebSocketSession> sessionList = new ArrayList<WebSocketSession>();
+	private static List<WebSocketSession> sessionList = new ArrayList();
 
 	/**
 	 * websocket 연결 성공 시
@@ -50,14 +50,14 @@ public class SocketController extends TextWebSocketHandler {
 	protected void handleTextMessage(WebSocketSession webSocketSession, TextMessage textMessage) throws Exception {
 		// 모든 세션에 채팅 전달
 		for (WebSocketSession session : sessionList) {
-			session.sendMessage(new TextMessage(webSocketSession.getId() + " : " + textMessage.getPayload()));
+			session.sendMessage(new TextMessage(webSocketSession.getId() + ": " + textMessage.getPayload()));
 		}
 	}
 
-	public void handleNoticeMessage(String sendMessage) throws Exception {
+	public static void handleNoticeMessage(String sendMessage) throws Exception {
 		// 모든 세션에 채팅 전달
 		for (WebSocketSession session : sessionList) {
-			session.sendMessage(new TextMessage("SERVER : " + sendMessage));
+			session.sendMessage(new TextMessage("SERVER:: " + sendMessage));
 		}
 	}
 }
