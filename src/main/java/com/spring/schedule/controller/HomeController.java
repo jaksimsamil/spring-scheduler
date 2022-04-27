@@ -36,6 +36,11 @@ public class HomeController {
 		return "home";
 	}
 
+	@RequestMapping(value="/socket")
+	public String socket(Locale locale, Model model, HttpServletRequest request) {
+		return "socket";
+	}
+
 	@RequestMapping(value="/updateScheduler")
 	public @ResponseBody HashMap<Object, Object> updateScheduler(@RequestParam HashMap<Object, Object> params) throws Exception{
 		Sample sampleType = Sample.valueOf((String) params.get("sampleType"));
