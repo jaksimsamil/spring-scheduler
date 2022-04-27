@@ -1,12 +1,12 @@
-# spring-schedule sample code
+# spring sample code
 
 ## 구현 환경
-1. spring framework 3
+1. spring framework 4
 2. java 8
 3. tomcat 8
 
 
-## 구현 내용
+## 스케줄러 구현
 1. 스프링 스케줄러 구현
    * 스프링에서 제공해주는 스케줄러 라이브러리를 활용한다.
 
@@ -15,3 +15,9 @@
 
 3. 멀티 스케줄러 구현
    * 동적 스케줄러를 여러개를 활용한다.
+
+
+## 웹 소켓 구현
+1. 스프링 웹 소켓 구현
+
+2. 서버 사이드에서 클라이언트로 전체 공지 구현
